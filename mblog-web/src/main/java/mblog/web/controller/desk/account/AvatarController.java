@@ -50,7 +50,8 @@ public class AvatarController extends BaseController {
 	@RequestMapping(value = "/avatar", method = RequestMethod.POST)
 	public String post(String path, Float x, Float y, Float width, Float height, ModelMap model) {
 		AccountProfile profile = getSubject().getProfile();
-		
+
+		System.out.println("开始保存头像....");
 		if (StringUtils.isEmpty(path)) {
 			model.put("data", Data.failure("请选择图片"));
 			return getView(Views.ACCOUNT_AVATAR);
@@ -90,6 +91,7 @@ public class AvatarController extends BaseController {
 				}
 			}
 		}
+		System.out.println("开始保存头像成功....");
 		return "redirect:/account/profile";
 	}
 	

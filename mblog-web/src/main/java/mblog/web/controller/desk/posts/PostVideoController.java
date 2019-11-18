@@ -48,9 +48,9 @@ public class PostVideoController extends BaseController {
 			UserProfile up = getSubject().getProfile();
 			
 			Video video = videoAnalysis.take(url);
-			
+			System.out.println("获取信息...");
 			Attach att = handleAlbums(video.getBigThumbnail());
-			
+			System.out.println("获取信息2...");
 			post.setTitle(video.getTitle());
 			post.setSummary(video.getDescription());
 			post.setContent(post.getContent());
@@ -63,6 +63,7 @@ public class PostVideoController extends BaseController {
 
 			post.setAttribute(extend);
 			postPlanet.post(post);
+			System.out.println("保存成功...");
 		}
 		return Views.REDIRECT_HOME_POSTS;
 	}
